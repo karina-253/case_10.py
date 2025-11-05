@@ -1,3 +1,7 @@
+import local as lcl
+from categories import all_categories, priority_categories
+
+
 def categorize_transaction_with_multiple(description: str, categories: dict,
                                          categories_priority: list) -> str:
     """
