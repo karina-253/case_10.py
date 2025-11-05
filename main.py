@@ -1,17 +1,10 @@
-import statistics
-import csv
-import json
-import os.path
-from collections import defaultdict, Counter
-import datetime
-import matplotlib.pyplot as plt
 import local as lcl
-import budget
-import categories
-import vizualization
-import data
-import categorization
-import analytics
+from data import import_financial_data
+from categorization import categorize_all_transactions
+from analytics import calculate_basic_stats, calculate_by_category, analyze_by_time, analyze_historical_spending
+from budget import create_budget_template, compare_budget_vs_actual
+from vizualization import visualize_financial_data
+from categories import all_categories, priority_categories
 
 
 def smart_piggy_bank(csv_file=None, json_file=None):
