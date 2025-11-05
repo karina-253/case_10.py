@@ -7,6 +7,7 @@ import datetime
 import matplotlib.pyplot as plt
 import local as lcl
 import budget
+import categories
 
 # ==========================
 # CATEGORIES AND PRIORITIES
