@@ -1,3 +1,7 @@
+from collections import defaultdict, Counter
+import local as lcl
+
+
 def create_budget_template(analysis: dict, total_income: float = None) -> dict:
     """
     Creates a budget template based on historical analysis and total income.
