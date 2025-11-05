@@ -1,3 +1,9 @@
+import statistics
+from collections import defaultdict, Counter
+import datetime
+import local as lcl
+
+
 def calculate_basic_stats(transactions: list) -> dict:
     """
     Calculates basic financial statistics from a list of transactions.
