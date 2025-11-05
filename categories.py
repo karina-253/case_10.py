@@ -1,5 +1,6 @@
 import local as lcl
 
+
 def all_categories() -> dict:
   """
   Returns a dictionary where each key is a category name, and the
