@@ -428,7 +428,7 @@ def compare_budget_vs_actual(budget: dict, transactions: list) -> dict:
             "limit": limit,
             "actual": spent,
             "difference": diff,
-            "status": "✅" f'{lcl.WITHIN_BUDGET}' if diff >= 0 else "⚠️" f'{lcl.BUDGET_EXCEEDED}'
+            "status": "\u2705" f'{lcl.WITHIN_BUDGET}' if diff >= 0 else "⚠️" f'{lcl.BUDGET_EXCEEDED}'
         }
     return report
 
@@ -476,7 +476,7 @@ def smart_piggy_bank(csv_file=None, json_file=None):
         json_file (str): Path to JSON data file.
     """
     print("=" * 70)
-    print("💰" f'{lcl.SMART_PIGGY_BANK}' "💡")
+    print("\U0001F4B0" f'{lcl.SMART_PIGGY_BANK}' "\U0001F4A1")
     print("=" * 70)
 
     if csv_file is None:
@@ -491,7 +491,7 @@ def smart_piggy_bank(csv_file=None, json_file=None):
         transactions += import_financial_data(json_file)
 
     if not transactions:
-        print("❌" f'{lcl.NO_ANALYSIS_DATA}')
+        print("\u274C" f'{lcl.NO_ANALYSIS_DATA}')
         return
 
     transactions = categorize_all_transactions(transactions)
@@ -505,30 +505,30 @@ def smart_piggy_bank(csv_file=None, json_file=None):
 
     # --- REPORT ---
     print("\n===" f'{lcl.FINANCIAL_REPORT}' "===")
-    print(f'💰 {lcl.INCOME} {stats['total_income']:.2f}')
-    print(f'💸 {lcl.EXPENSES} {abs(stats['total_expense']):.2f}')
-    print(f'⚖️ {lcl.BALANCE}{stats['balance']:.2f}')
+    print(f'\U0001F4B0 {lcl.INCOME} {stats['total_income']:.2f}')
+    print(f'\U0001F4B8 {lcl.EXPENSES} {abs(stats['total_expense']):.2f}')
+    print(f'\u2696 {lcl.BALANCE}{stats['balance']:.2f}')
 
-    print("\n📊" f'{lcl.EXPENSES_BY_CATEGORY_TITLE}')
+    print("\n\U0001F4CA" f'{lcl.EXPENSES_BY_CATEGORY_TITLE}')
     for cat, data in categories_stats.items():
         print(f"  {cat}: {abs(data['sum']):.2f} {lcl.RUB} ({data['percent']:.1f}%)")
 
-    print("\n📅" f'{lcl.MONTHLY_ANALYSIS}')
+    print("\n\U0001F4C5" f'{lcl.MONTHLY_ANALYSIS}')
     for month, data in timeline.items():
         top = ", ".join([f"{c} ({n})" for c, n in data["top_categories"]])
         print(f"  {month}: {lcl.INCOME_LABEL} {data['income']:.2f} | {lcl.EXPENSE_LABEL}"
               f" {abs(data['expenses']):.2f} → {lcl.TOP} {top}")
 
-    print("\n🎯" f'{lcl.RECOMMENDATIONS}')
+    print("\n\U0001F3AF" f'{lcl.RECOMMENDATIONS}')
     for cat, val in analysis["top_categories"]:
-        print(f"  🔸 {cat}: {val:.2f} {lcl.AVERAGE_RUB}")
+        print(f"  {cat}: {val:.2f} {lcl.AVERAGE_RUB}")
 
-    print("\n📋" f'{lcl.BUDGET_COMPARISON}')
+    print("\n\U0001F4CB" f'{lcl.BUDGET_COMPARISON}')
     for cat, info in comparison.items():
         print(f"  {cat}: {lcl.SPENT} {info['actual']:.2f} / {lcl.LIMIT} "
               f"{info['limit']:.2f} → {info['status']}")
 
-    print("\n✅" f'{lcl.ANALYSIS_SUCCESS}' "\n")
+    print("\n\u2705" f'{lcl.ANALYSIS_SUCCESS}' "\n")
 
     visualize_financial_data(transactions)
 
