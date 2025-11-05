@@ -1,3 +1,8 @@
+from collections import defaultdict, Counter
+import matplotlib.pyplot as plt
+import local as lcl
+
+
 def visualize_financial_data(transactions: list):
     """
     Visualizes expenses by category using a bar chart.
