@@ -1,10 +1,11 @@
 import local as lcl
 from data import import_financial_data
-from categorization import categorize_all_transactions
-from analytics import calculate_basic_stats, calculate_by_category, analyze_by_time, analyze_historical_spending
+from analytics import (calculate_basic_stats, calculate_by_category, analyze_by_time,
+                       analyze_historical_spending)
 from budget import create_budget_template, compare_budget_vs_actual
 from vizualization import visualize_financial_data
-from categories import all_categories, priority_categories
+from categories import (all_categories, priority_categories,
+                        categorize_transaction_with_multiple, categorize_all_transactions)
 
 
 def smart_piggy_bank(csv_file=None, json_file=None):
@@ -43,7 +44,7 @@ def smart_piggy_bank(csv_file=None, json_file=None):
     budget = create_budget_template(analysis, stats["total_income"])
     comparison = compare_budget_vs_actual(budget, transactions)
 
-    # --- REPORT ---
+
     print("\n===" f'{lcl.FINANCIAL_REPORT}' "===")
     print(f'\U0001F4B0 {lcl.INCOME} {stats['total_income']:.2f}')
     print(f'\U0001F4B8 {lcl.EXPENSES} {abs(stats['total_expense']):.2f}')
@@ -75,3 +76,4 @@ def smart_piggy_bank(csv_file=None, json_file=None):
 
 if __name__ == "__main__":
     smart_piggy_bank()
+    
