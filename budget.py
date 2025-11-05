@@ -46,6 +46,6 @@ def compare_budget_vs_actual(budget: dict, transactions: list) -> dict:
             "limit": limit,
             "actual": spent,
             "difference": diff,
-            "status": "\u2705" f'{lcl.WITHIN_BUDGET}' if diff >= 0 else "⚠️" f'{lcl.BUDGET_EXCEEDED}'
+            "status": "\u2705" f'{lcl.WITHIN_BUDGET}' if diff >= 0 else f'{lcl.BUDGET_EXCEEDED}'
         }
     return report
