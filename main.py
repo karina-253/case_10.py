@@ -6,6 +6,7 @@ from collections import defaultdict, Counter
 import datetime
 import matplotlib.pyplot as plt
 import local as lcl
+import budget
 
 # ==========================
 # CATEGORIES AND PRIORITIES
